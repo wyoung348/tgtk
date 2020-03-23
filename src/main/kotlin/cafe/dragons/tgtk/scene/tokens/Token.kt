@@ -1,8 +1,8 @@
-package cafe.dragons.tgtk.scene.token
+package cafe.dragons.tgtk.scene.tokens
 
-import cafe.dragons.tgtk.scene.TextProperty
+import cafe.dragons.tgtk.scene.properties.Property
 
-typealias Dictionary = MutableMap<String, TextProperty>
+typealias Dictionary = MutableMap<String, Property>
 
 interface Token {
     fun toString(dict: Dictionary): String?
@@ -17,9 +17,6 @@ class SimpleToken(private val key: String): Token {
 }
 
 class ConditionalToken(private val key: String, private val cond: Condition): Token {
-    class Condition { // TODO
-        fun eval(dict: Dictionary) = true // TODO
-    }
     override fun toString(dict: Dictionary) = if (cond.eval(dict)) dict[key]?.toString() ?: key else null
 }
 
