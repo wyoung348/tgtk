@@ -1,7 +1,7 @@
 package cafe.dragons.tgtk.collections
 
 class LinkedStack<T>: Stack<T> {
-    private class Node<T>(val elem: T, var next: Node<T>? = null)
+    private class Node<T>(val elem: T, var next: Node<T>?)
 
     private var head: Node<T>? = null
 
